@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thiago Andrade — Engenharia de Software</title>
+  <meta name="description" content="Portfólio de Thiago Andrade, graduando em Engenharia de Software na FIAP, em busca de estágio em (PREENCHER AQUI).">
+  <meta name="author" content="Thiago Andrade">
+  <meta name="theme-color" content="#003559">
+
+  <!-- Open Graph (prévia ao compartilhar o link) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thiago Andrade — Engenharia de Software">
+  <meta property="og:description" content="Graduando em Engenharia de Software na FIAP, em busca de estágio em (PREENCHER AQUI).">
+  <!-- imagem de prévia aqui: <meta property="og:image" content="https://SEU-DOMINIO/assets/og-image.jpg"> -->
+  <!-- endereço do site aqui: <meta property="og:url" content="https://SEU-DOMINIO/"> -->
+
+  <!-- favicon aqui: <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"> -->
+
+  <!-- Aplica o tema salvo antes da renderização (evita piscar o tema errado) -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== HEADER: horários pelo mundo ===================== -->
+  <header class="site-header">
+    <div class="ticker" data-ticker role="marquee" aria-label="Horário atual em sete cidades do mundo">
+      <div class="ticker__track">
+        <ul class="ticker__list">
+          <li class="ticker__item ticker__item--home" data-tz="America/Sao_Paulo">
+            <span class="ticker__city">São Paulo</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="America/New_York">
+            <span class="ticker__city">Nova York</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="Europe/London">
+            <span class="ticker__city">Londres</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="Asia/Dubai">
+            <span class="ticker__city">Dubai</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="Asia/Singapore">
+            <span class="ticker__city">Singapura</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="Asia/Tokyo">
+            <span class="ticker__city">Tóquio</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+          <li class="ticker__item" data-tz="Australia/Sydney">
+            <span class="ticker__city">Sydney</span>
+            <time class="ticker__time">--:--:--</time>
+            <span class="ticker__zone"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="ticker__toggle" type="button" data-ticker-toggle data-requires-js aria-pressed="false" aria-label="Pausar letreiro de horários">
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+    </button>
+  </header>
+
+  <!-- ===================== NAVEGAÇÃO INFERIOR FIXA =====================
+       Fica logo após o header no código para vir cedo na ordem do teclado;
+       visualmente é fixada na parte inferior da tela pelo CSS. -->
+  <nav class="dock glass" aria-label="Seções da página">
+    <ul class="dock__list">
+      <li><a class="dock__link" href="#sobre" aria-current="true">Sobre</a></li>
+      <li><a class="dock__link" href="#skills">Skills</a></li>
+      <li><a class="dock__link" href="#formacao">Formação</a></li>
+      <li><a class="dock__link" href="#projetos">Projetos</a></li>
+      <li><a class="dock__link" href="#experiencia">Experiência</a></li>
+      <li><a class="dock__link" href="#certificacoes">Certificações</a></li>
+      <li><a class="dock__link" href="#contato">Contato</a></li>
+    </ul>
+    <button class="dock__theme" type="button" data-theme-toggle data-requires-js aria-label="Alternar tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </nav>
+
+  <main id="conteudo">
+
+    <!-- ===================== 1. SOBRE MIM (Hero) ===================== -->
+    <section id="sobre" class="hero" aria-labelledby="sobre-title">
+      <div class="blobs" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero-enter" style="--d: 100ms">
+          <div class="profile" data-tilt>
+            <article class="profile-card glass" aria-label="Cartão de apresentação">
+              <!-- foto aqui: substitua a div abaixo por
+                   (mantenha a imagem dentro de .profile-card__photo) -->
+              <img src="images/Thiago.png" alt="Foto de Thiago Andrade" width="500" height="400">
+
+              <div class="profile-card__info">
+                <div class="profile-card__header">
+                  <p class="profile-card__name">Thiago Andrade</p>
+                  <p class="profile-card__tag">Eng. de Software</p>
+                </div>
+                <ul class="profile-card__contacts">
+                  <li>
+                    <!-- ícone de localização aqui -->
+                    <span>São Paulo – SP</span>
+                  </li>
+                  <li>
+                    <!-- ícone de e-mail aqui -->
+                    <a href="mailto:thiagoandrade7@yahoo.com">thiagoandrade7@yahoo.com</a>
+                  </li>
+                  <li>
+                    <!-- ícone do LinkedIn aqui -->
+                    <a href="https://www.linkedin.com/in/thiagoandrade7" target="_blank" rel="noopener noreferrer">linkedin.com/in/thiagoandrade7<span class="sr-only"> (abre em nova aba)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero__content">
+          <h1 class="hero__title" id="sobre-title">
+            <span class="hero__hello">
+              <span class="sr-only">Olá!</span>
+              <span class="hello-letters" aria-hidden="true"><span style="--i: 0">O</span><span style="--i: 1">l</span><span style="--i: 2">á</span><span style="--i: 3">!</span></span>
+            </span>
+            <span class="hero__intro hero-enter" style="--d: 500ms">Eu sou Thiago Andrade.</span>
+          </h1>
+
+          <p class="hero__role hero-enter" style="--d: 650ms">
+            <span class="sr-only">Graduando em Engenharia de Software, em busca de estágio em (PREENCHER AQUI).</span>
+            <span aria-hidden="true"><span data-typewriter='["Graduando em Engenharia de Software", "Em busca de estágio em (PREENCHER AQUI)", "Futuro desenvolvedor de software"]'>Graduando em Engenharia de Software</span><span class="typewriter-caret"></span></span>
+          </p>
+
+          <div class="hero__bio hero-enter" style="--d: 800ms">
+            <p>Sou graduando em Engenharia de Software na FIAP e estou em transição para a área de tecnologia. Antes disso, construí uma base sólida em gestão: sou técnico em Administração pela ETEC e atuei por quase três anos com rotinas administrativas e financeiras.</p>
+            <p>No dia a dia, trabalhei com controle financeiro, lançamentos em sistema, emissão de notas fiscais, organização de estoque e suporte ao e-commerce. Essa vivência fortaleceu minha organização, responsabilidade, análise de informações e relacionamento interpessoal.</p>
+            <p>Hoje busco uma oportunidade de estágio em tecnologia, com foco em aprendizado e desenvolvimento profissional contínuo.</p>
+          </div>
+
+          <div class="hero__actions hero-enter" style="--d: 950ms">
+            <a class="btn btn--primary" href="#projetos">Ver projetos <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#contato">Fale comigo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. SKILLS E IDIOMAS ===================== -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">02</span> O que eu uso</p>
+          <h2 class="section__title" id="skills-title">Skills e Idiomas</h2>
+        </header>
+
+        <div class="section__body">
+          <p class="section__lead" data-reveal>Tecnologias que venho praticando na graduação e competências que trago da experiência profissional.</p>
+
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title">
+              <!-- ícone da categoria aqui -->
+              <span class="skill-group__num">01</span> <span class="skill-group__dash" aria-hidden="true">—</span> Tecnologias
+            </h3>
+            <ul class="chips">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Git</li>
+              <li class="chip">GitHub</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title">
+              <!-- ícone da categoria aqui -->
+              <span class="skill-group__num">02</span> <span class="skill-group__dash" aria-hidden="true">—</span> Em aprendizado
+            </h3>
+            <!-- PLACEHOLDER: substitua pelas tecnologias que você está estudando na FIAP -->
+            <ul class="chips">
+              <li class="chip chip--learning">Lógica de programação</li>
+              <li class="chip chip--learning">Python</li>
+              <li class="chip chip--learning">SQL</li>
+              <li class="chip chip--learning">HTML e CSS</li>
+              <li class="chip chip--learning">Javascript</li>
+              <li class="chip chip--learning">React</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title">
+              <!-- ícone da categoria aqui -->
+              <span class="skill-group__num">03</span> <span class="skill-group__dash" aria-hidden="true">—</span> Ferramentas
+            </h3>
+            <ul class="chips">
+              <li class="chip">Microsoft Excel</li>
+              <li class="chip">Microsoft PowerPoint</li>
+              <li class="chip">Sistemas de gestão</li>
+              <li class="chip">Mercado Livre</li>
+              <li class="chip">Magazine Luiza</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title">
+              <!-- ícone da categoria aqui -->
+              <span class="skill-group__num">04</span> <span class="skill-group__dash" aria-hidden="true">—</span> Competências
+            </h3>
+            <ul class="chips">
+              <li class="chip">Atendimento ao cliente</li>
+              <li class="chip">Controle financeiro</li>
+              <li class="chip">Emissão de notas fiscais</li>
+              <li class="chip">Controle de estoque</li>
+              <li class="chip">Atualização de cadastros</li>
+              <li class="chip">Organização</li>
+              <li class="chip">Análise de informações</li>
+              <li class="chip">Relacionamento interpessoal</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-reveal>
+            <h3 class="skill-group__title">
+              <!-- ícone da categoria aqui -->
+              <span class="skill-group__num">05</span> <span class="skill-group__dash" aria-hidden="true">—</span> Idiomas
+            </h3>
+            <ul class="chips">
+              <li class="chip">Português <span class="chip__level">Nativo</span></li>
+              <li class="chip">Espanhol <span class="chip__level">Básico</span></li>
+              <li class="chip">Inglês <span class="chip__level">Básico</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3. FORMAÇÃO ACADÊMICA ===================== -->
+    <section id="formacao" class="section" aria-labelledby="formacao-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">03</span> De onde venho</p>
+          <h2 class="section__title" id="formacao-title">Formação acadêmica</h2>
+        </header>
+
+        <div class="section__body">
+          <ol class="timeline" data-timeline>
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__card">
+                <p class="timeline__date"><time datetime="2026-02">fev 2026</time> — <time datetime="2029-11">nov 2029</time><br>(previsão)</p>
+                <div class="timeline__content">
+                  <h3 class="timeline__title">Bacharelado em Engenharia de Software</h3>
+                  <p class="timeline__meta">
+                    <span class="timeline__org">FIAP</span>
+                    <span aria-hidden="true">·</span> São Paulo
+                    <span class="badge">Em andamento</span>
+                  </p>
+                  <p class="timeline__desc">Graduação em desenvolvimento de software.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__card">
+                <p class="timeline__date"><time datetime="2018-02">fev 2018</time> — <time datetime="2019-10">out 2019</time></p>
+                <div class="timeline__content">
+                  <h3 class="timeline__title">Ensino Técnico em Administração</h3>
+                  <p class="timeline__meta">
+                    <span class="timeline__org">ETEC – Escola Técnica Estadual de São Paulo</span>
+                    <span aria-hidden="true">·</span> São Paulo
+                  </p>
+                  <p class="timeline__desc">Formação técnica no eixo Gestão e Negócios.</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. PROJETOS ===================== -->
+    <section id="projetos" class="section" aria-labelledby="projetos-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">04</span> O que construí</p>
+          <h2 class="section__title" id="projetos-title">Projetos</h2>
+        </header>
+
+        <div class="section__body">
+          <p class="section__lead" data-reveal>Projetos práticos que mostram como venho aplicando o que aprendo.</p>
+
+          <ul class="card-grid">
+            <!-- Projeto real: este portfólio -->
+            <li data-reveal>
+              <article class="project-card glass">
+                <div class="project-card__thumb">
+                  <!-- imagem do projeto aqui: <img src="assets/projeto-portfolio.jpg" alt="Tela inicial do portfólio"> -->
+                  <span class="project-card__thumb-label" aria-hidden="true">&lt;/&gt;</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Portfólio pessoal</h3>
+                  <p class="project-card__desc">Site de página única, acessível e responsivo, com tema claro/escuro, relógios mundiais em tempo real e animações que respeitam a preferência por movimento reduzido.</p>
+                  <ul class="chips chips--sm" aria-label="Tecnologias">
+                    <li class="chip">HTML</li>
+                    <li class="chip">CSS</li>
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">Acessibilidade</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <!-- link do repositório aqui -->
+                    <a class="btn btn--ghost btn--sm" href="#" aria-label="Código do projeto Portfólio pessoal">Código</a>
+                    <!-- link da demo aqui -->
+                    <a class="btn btn--primary btn--sm" href="#" aria-label="Demo do projeto Portfólio pessoal">Demo</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- PROJETO FICTÍCIO: substitua por um projeto real -->
+            <li data-reveal>
+              <article class="project-card glass">
+                <div class="project-card__thumb">
+                  <!-- imagem do projeto aqui -->
+                  <span class="project-card__thumb-label" aria-hidden="true">{ }</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Controle de estoque web</h3>
+                  <p class="project-card__desc">Aplicação para cadastrar produtos, registrar entradas e saídas e alertar sobre itens com estoque baixo, inspirada na rotina administrativa.</p>
+                  <ul class="chips chips--sm" aria-label="Tecnologias">
+                    <li class="chip">HTML</li>
+                    <li class="chip">CSS</li>
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">LocalStorage</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <!-- link do repositório aqui -->
+                    <a class="btn btn--ghost btn--sm" href="#" aria-label="Código do projeto Controle de estoque web">Código</a>
+                    <!-- link da demo aqui -->
+                    <a class="btn btn--primary btn--sm" href="#" aria-label="Demo do projeto Controle de estoque web">Demo</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- PROJETO FICTÍCIO: substitua por um projeto real -->
+            <li data-reveal>
+              <article class="project-card glass">
+                <div class="project-card__thumb">
+                  <!-- imagem do projeto aqui -->
+                  <span class="project-card__thumb-label" aria-hidden="true">R$</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Organizador de finanças pessoais</h3>
+                  <p class="project-card__desc">Painel para lançar receitas e despesas por categoria, com resumo mensal e gráfico de gastos.</p>
+                  <ul class="chips chips--sm" aria-label="Tecnologias">
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">Chart.js</li>
+                    <li class="chip">CSS Grid</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <!-- link do repositório aqui -->
+                    <a class="btn btn--ghost btn--sm" href="#" aria-label="Código do projeto Organizador de finanças pessoais">Código</a>
+                    <!-- link da demo aqui -->
+                    <a class="btn btn--primary btn--sm" href="#" aria-label="Demo do projeto Organizador de finanças pessoais">Demo</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <!-- PROJETO FICTÍCIO: substitua por um projeto real -->
+            <li data-reveal>
+              <article class="project-card glass">
+                <div class="project-card__thumb">
+                  <!-- imagem do projeto aqui -->
+                  <span class="project-card__thumb-label" aria-hidden="true">A11y</span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Landing page acessível</h3>
+                  <p class="project-card__desc">Página institucional construída com foco nas diretrizes WCAG: navegação por teclado, contraste adequado e HTML semântico.</p>
+                  <ul class="chips chips--sm" aria-label="Tecnologias">
+                    <li class="chip">HTML</li>
+                    <li class="chip">CSS</li>
+                    <li class="chip">WCAG</li>
+                  </ul>
+                  <div class="project-card__links">
+                    <!-- link do repositório aqui -->
+                    <a class="btn btn--ghost btn--sm" href="#" aria-label="Código do projeto Landing page acessível">Código</a>
+                    <!-- link da demo aqui -->
+                    <a class="btn btn--primary btn--sm" href="#" aria-label="Demo do projeto Landing page acessível">Demo</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5. EXPERIÊNCIA PROFISSIONAL ===================== -->
+    <section id="experiencia" class="section" aria-labelledby="experiencia-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">05</span> Onde atuei</p>
+          <h2 class="section__title" id="experiencia-title">Experiência profissional</h2>
+        </header>
+
+        <div class="section__body">
+          <p class="section__lead" data-reveal>Experiências que desenvolveram organização, análise de informações e foco no cliente: a base que levo para a tecnologia.</p>
+
+          <ol class="timeline" data-timeline>
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__card">
+                <p class="timeline__date"><time datetime="2022-05">mai 2022</time> — <time datetime="2025-02">fev 2025</time></p>
+                <div class="timeline__content">
+                  <h3 class="timeline__title">Auxiliar Administrativo</h3>
+                  <p class="timeline__meta">
+                    <span class="timeline__org">Elu Autopeças</span>
+                    <span aria-hidden="true">·</span> São Paulo, SP
+                  </p>
+                  <ul class="timeline__list">
+                    <li>Rotinas de controle financeiro e contábil utilizando Excel e sistema interno.</li>
+                    <li>Recebimento de pagamentos e baixa no sistema.</li>
+                    <li>Lançamento e emissão de notas fiscais; cadastro de produtos e emissão de etiquetas para expedição.</li>
+                    <li>Controle, organização e inventário de estoque.</li>
+                    <li>Atendimento ao cliente via e-commerce, WhatsApp e telefone.</li>
+                    <li>Gestão e atualização de anúncios no Mercado Livre e Magazine Luiza.</li>
+                    <li>Atualização e manutenção de dados cadastrais no sistema.</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__card">
+                <p class="timeline__date"><time datetime="2020-02">fev 2020</time> — <time datetime="2021-01">jan 2021</time></p>
+                <div class="timeline__content">
+                  <h3 class="timeline__title">Atendente</h3>
+                  <p class="timeline__meta">
+                    <span class="timeline__org">Droga Raia</span>
+                    <span aria-hidden="true">·</span> São Paulo, SP
+                  </p>
+                  <ul class="timeline__list">
+                    <li>Atendimento e orientação aos clientes sobre medicamentos e demais produtos da loja.</li>
+                    <li>Aplicação de políticas comerciais e ofertas personalizadas conforme sistema interno.</li>
+                    <li>Operação de caixa e processamento de pagamentos.</li>
+                    <li>Organização de gôndolas, conferência de preços e apoio à manutenção do padrão da loja.</li>
+                    <li>Entrega em domicílio.</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 6. CERTIFICAÇÕES ===================== -->
+    <section id="certificacoes" class="section" aria-labelledby="certificacoes-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">06</span> Aprendizado contínuo</p>
+          <h2 class="section__title" id="certificacoes-title">Certificações</h2>
+        </header>
+
+        <div class="section__body">
+          <ul class="card-grid">
+            <li data-reveal>
+              <article class="cert-card glass">
+                <!-- ícone/logo da instituição aqui -->
+                <h3 class="cert-card__title">Formação Social e Sustentabilidade</h3>
+                <!-- PLACEHOLDER: emissor e data -->
+                <p class="cert-card__meta">FIAP · Mar/2026</p>
+                <!-- link da credencial aqui -->
+                <a class="btn btn--ghost btn--sm cert-card__link" href="https://on.fiap.com.br/local/nanocourses/gerar_certificado.php?chave=e2d63e55275777c5ac96a164e7bbcddb&action=view" aria-label="Ver credencial de Formação Social e Sustentabilidade">Ver credencial</a>
+              </article>
+            </li>
+
+            <li data-reveal>
+              <article class="cert-card glass">
+                <!-- ícone/logo da instituição aqui -->
+                <h3 class="cert-card__title">Design Thinking – Process</h3>
+                <!-- PLACEHOLDER: emissor e data -->
+                <p class="cert-card__meta">FIAP · Mar/2026</p>
+                <!-- link da credencial aqui -->
+                <a class="btn btn--ghost btn--sm cert-card__link" href="https://on.fiap.com.br/local/nanocourses/gerar_certificado.php?chave=25ea2a295fc1477762636093801e96d4&action=view" aria-label="Ver credencial de Design Thinking – Process">Ver credencial</a>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 7. CONTATO ===================== -->
+    <section id="contato" class="section" aria-labelledby="contato-title">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="section__eyebrow"><span class="section__num">07</span> Vamos conversar</p>
+          <h2 class="section__title" id="contato-title">Contato</h2>
+        </header>
+
+        <div class="section__body">
+          <p class="section__lead" data-reveal>Estou em busca de uma oportunidade de estágio em (PREENCHER AQUI). Se quiser conversar sobre uma vaga ou um projeto, escolha o canal que preferir.</p>
+
+          <ul class="card-grid">
+            <!-- E-mail: mailto abre o app de e-mail; "Copiar" funciona com qualquer provedor (Gmail, Outlook web etc.) -->
+            <li data-reveal>
+              <div class="contact-card glass">
+                <span class="contact-card__icon" aria-hidden="true">
+                  <!-- ícone de e-mail aqui -->@
+                </span>
+                <p class="contact-card__label">E-mail</p>
+                <p class="contact-card__value" id="email-address">thiagoandrade7@yahoo.com</p>
+                <div class="contact-card__actions">
+                  <a class="btn btn--primary btn--sm" href="mailto:thiagoandrade7@yahoo.com">Enviar e-mail</a>
+                  <button class="btn btn--ghost btn--sm" type="button" data-requires-js
+                          data-copy="thiagoandrade7@yahoo.com"
+                          data-copy-status="#email-status"
+                          data-copy-fallback="#email-address"
+                          aria-describedby="email-address">
+                    <span data-copy-label>Copiar</span>
+                  </button>
+                </div>
+                <p class="contact-card__status" id="email-status" role="status"></p>
+              </div>
+            </li>
+
+            <li data-reveal>
+              <div class="contact-card glass">
+                <span class="contact-card__icon" aria-hidden="true">
+                  <!-- ícone do LinkedIn aqui -->in
+                </span>
+                <p class="contact-card__label">LinkedIn</p>
+                <!-- link do LinkedIn (preenchido com o do currículo) -->
+                <a class="contact-card__value contact-card__value--stretched" href="https://www.linkedin.com/in/thiagoandrade7" target="_blank" rel="noopener noreferrer">linkedin.com/in/thiagoandrade7<span class="sr-only"> (abre em nova aba)</span></a>
+                <span class="contact-card__hint" aria-hidden="true">Abrir perfil ↗</span>
+              </div>
+            </li>
+
+            <li data-reveal>
+              <div class="contact-card glass">
+                <span class="contact-card__icon" aria-hidden="true">
+                  <!-- ícone do GitHub aqui -->GH
+                </span>
+                <p class="contact-card__label">GitHub</p>
+                <!-- link do GitHub aqui (ex.: https://github.com/seu-usuario) -->
+                <a class="contact-card__value contact-card__value--stretched" href="https://github.com/othiandrade" target="_blank" rel="noopener noreferrer">github.com/othiandrade<span class="sr-only"> (abre em nova aba)</span></a>
+                <span class="contact-card__hint" aria-hidden="true">Ver repositórios ↗</span>
+              </div>
+            </li>
+
+            <li data-reveal>
+              <div class="contact-card glass">
+                <span class="contact-card__icon" aria-hidden="true">
+                  <!-- ícone do Instagram aqui -->IG
+                </span>
+                <p class="contact-card__label">Instagram</p>
+                <!-- link do Instagram aqui (ex.: https://www.instagram.com/seu-usuario) -->
+                <a class="contact-card__value contact-card__value--stretched" href="https://www.instagram.com/othiandrade" target="_blank" rel="noopener noreferrer">@othiandrade<span class="sr-only"> (abre em nova aba)</span></a>
+                <span class="contact-card__hint" aria-hidden="true">Abrir perfil ↗</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 8. AGRADECIMENTO + RODAPÉ ===================== -->
+  <footer>
+    <section class="thanks" aria-labelledby="thanks-title">
+      <div class="blobs" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+      </div>
+
+      <p class="thanks__corner thanks__corner--tl">Engenharia de Software · FIAP</p>
+
+      <div class="thanks__stack" data-reveal>
+        <p class="thanks__label glass">Se acompanhou até aqui</p>
+        <h2 class="thanks__title" id="thanks-title">Obrigado!</h2>
+        <p class="thanks__text">Agradeço pelo seu tempo e interesse. Vai ser um prazer conversar com você.</p>
+      </div>
+
+      <p class="thanks__corner thanks__corner--br">Thiago Andrade</p>
+    </section>
+
+    <div class="footer-bar">
+      <div class="container footer-bar__inner">
+        <p>© <span data-year>2026</span> Thiago Andrade. Feito com HTML, CSS e JavaScript.</p>
+        <a href="#conteudo">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
