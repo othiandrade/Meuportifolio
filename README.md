@@ -39,7 +39,7 @@ Sobre mim, Skills, Formação acadêmica, Projetos, Experiência profissional, C
 
 Para permitir o acesso as informações de maneira clara e fácil permitindo uma navegação dinâmica e intuitiva como se fosse um currículo, o usuário encontra cada informação dentro de cada tópico.
 
-## PROMPT DE FEITO MANUALMENTE
+## PROMPT FEITO MANUALMENTE
 
 ``Prompt inicial: 
 Utilizando HTML e CSS
